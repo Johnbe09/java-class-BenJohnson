@@ -20,76 +20,202 @@ public class Ex1Driver {
     task4();
     task5();
     task6();
-    task7();
+    //task7(); //funky build
     task8(numbers);
     task9();
     task10();
+    
   }
 
   /**
    * TODO: Task 1: Print "Hello World" to the default system output
    */
   public static void task1() {
-    throw new UnsupportedOperationException("Task 1 is not implemented yet.");
+    System.out.println("Hello World");
   }
   /**
    * TODO: Task 2: Print all numbers between 1 and 100 (inclusive) replacing all multiples of 3 with "foo", multiples of 5 with "bar", multiples of 3 and 5 with "huh"
    */
   public static void task2() {
-    throw new UnsupportedOperationException("Task 2 is not implemented yet.");
+    for (int i=1; i <= 100; ++i) {
+      if (i % 15 == 0) {
+        System.out.println("huh");
+    } else if (i % 3 == 0) {
+        System.out.println("foo"); 
+    } else if (i % 5 == 0) {
+        System.out.println("bar"); 
+    } else
+    System.out.println(i);      
+  }    
   }
   /**
    * TODO: Task 3: Calculate and print the sum of all multiples of 7 between 1 and 100 (inclusive)
    */
   public static void task3() {
-    throw new UnsupportedOperationException("Task 3 is not implemented yet.");
+      int sum = 0;
+      System.out.println();
+    for (int i= 1; i < 100; i++) {
+      if(i % 7 == 0 ) {
+          sum = sum + i;
+      }
+      }
+    System.out.println(sum);
+    System.out.println();
+    // have an accumulator that some numbers are added to
   }
+  
   /**
    * TODO: Task 4: Calculate and print sum and product of all numbers between 1 and 20 (inclusive)
    */
   public static void task4() {
-    throw new UnsupportedOperationException("Task 4 is not implemented yet.");
+      long summation = 0;
+      long product = 1;
+      for (long i = 1; i <= 20; i++) {
+          summation = summation + i;
+          product = product * i;
+          System.out.println(product);
+      }
+      System.out.println(summation);
+      System.out.println(product);
+          
+    // split() function turns it into array of strings
+    // 1 8 27 64 125
   }
   /**
    * TODO: Task 5: Ask a user to enter their full name and print the initials (ie John Q Doe should yield JQD)
    */
   public static void task5() {
-    throw new UnsupportedOperationException("Task 5 is not implemented yet.");
-  }
+      //String fullname = "";
+      System.out.println();
+      //System.out.println("Enter your full name");
+      Scanner keyboard = new Scanner(System.in);
+      System.out.printf("Enter your full name%n");
+      String fullName = keyboard.nextLine();
+      //System.out.println(fullName);
+      String[] name = fullName.split(" ");
+     // System.out.println(name[0].charAt(0));
+      for (int i =0; i < name.length; i++) {
+          System.out.print(name[i].charAt(0));
+      }
+          System.out.println();
+      }
+      
+             
   /**
    * TODO: Task 6: Create an array of 10 elements and initiate each element in it to the cube of its index (Do it in a loop, not during declaration)
    */
   public static void task6() {
-    throw new UnsupportedOperationException("Task 6 is not implemented yet.");
+      System.out.println();
+      int[] cubeNumbers = new int[10];
+      for (int i = 0; i < cubeNumbers.length; i++) {
+          cubeNumbers[i] = i * i * i;
+          
+      }
+      System.out.println();
+      
   }
   /**
    * TODO: Task 7: Create an array of 100 random integers between 1 and 100, ask the user for an integer and tell if that number is in the array
    */
+  
+  
+ /*
   public static void task7() {
     Random rnd = new Random();
-    rnd.setSeed(252);
-    throw new UnsupportedOperationException("Task 7 is not implemented yet.");
-  }
+    rnd.setSeed(100);
+    int[] randomNumbers = new int[100];
+    boolean logic = false;
+    Scanner keyboard = new Scanner(System.in);
+    System.out.printf("Enter an integer to see if it is in the array%n");
+    int userNumber = keyboard.nextInt();
+    for (int i = 0; i <= randomNumbers.length; i++) {
+        if (randomNumbers[i] == userNumber) {
+            System.out.println(randomNumbers[i]);
+            logic = true;
+        }
+    }
+    if (logic == true) {
+        System.out.println("Your number is in the array");
+    } else {
+        System.out.println("Your number is not in the array");
+    }      
+}
+*/
   /**
    * TODO: Task 8: Take an array of integers as a parameter, calculate, print, and return the sum of its elements
    * @param numbers
    * @return 
    */
-  public static int task8(int[] numbers) {
-    throw new UnsupportedOperationException("Task 8 is not implemented yet.");
-  }
+    
+
+    public static int task8(int[] numbers) {
+        System.out.println();
+        int sum = 0;
+        for (int i = 0; i < numbers.length; i++) {
+        sum = sum + numbers[i];
+        }
+            System.out.println(sum);
+        return sum;
+        }
+  
   /**
    * TODO: Task 9: Ask a user to enter a word and write a function that tells if letters of a word are ordered (ie. "buy" would return true, while "bye" - false).
    * @return 
    */
+    
+
   public static boolean task9() {
-    throw new UnsupportedOperationException("Task 9 is not implemented yet.");
+    Scanner keyboard = new Scanner(System.in);
+    System.out.printf("Enter a word%n");
+    String word = keyboard.nextLine();
+    //System.out.println(word.charAt(0));
+    boolean logic = true;
+    for (int i = 0; i < word.length()-1; i++) {
+        //System.out.println(word.charAt(i));
+        //System.out.println((int)word.charAt(i));
+        if ((int)word.charAt(i) > (int)word.charAt(i+1)) {
+            System.out.println("not alphabetical");
+            
+            logic = false;
+            return logic;
+        }
+    } System.out.println("alphabetical");
+    return logic;
   }
+ 
+
   /**
    * TODO: Task 10: Implement sieve of Eratosthenes and print all prime numbers between 1 and 100
    */
-  public static void task10() {
-    throw new UnsupportedOperationException("Task 3 is not implemented yet.");
-  }
 
+
+
+
+    public static void task10() {
+        int[] set = new int[100];
+        for (int i = 0; i < set.length; i++) {
+            set[i] = i+1;
+    }
+    set[0] = 0;
+    for (int i = 0; i < set.length; i++) {
+        while (set[i] == 0) {
+            i = i + 1;
+        }
+        System.out.print(set[i]);
+        for (int x = i; x< set.length; x++) {
+            if (set[x] % set[i] == 0) {
+                set[x] = 0;
+            }
+        }
+        
+    }
+    System.out.println();
 }
+    
+    
+            
+         
+  // finding prime numbers algorithm
+  // look up the algorithm on wikipedia
+  //implement it on java
+  
