@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import java.util.Scanner;
 
 /**
  * Class Roster
@@ -15,5 +16,43 @@ import java.util.regex.Pattern;
  * @author yasiro01
  */
 public class Roster {
+    private ArrayList<Student> roster = new ArrayList();
+    
+    public Roster(String filename) throws FileNotFoundException, IOException {
+        // read contents of file into the roster
+        BufferedReader reader = new BufferedReader(new FileReader(filename));
+        //Scanner lineContent = new Scanner(reader);
+        String tempName = "";
+        String tempMajor = "";
+        double tempGpa = 0;
+        String line;
+        //while ((line = reader.readLine()) != null); {
+        //while (lineContent.hasNext()) {
+            //String attributes = lineContent.nextLine();
+        line = reader.readLine();
+        while (line != null) {
+            String[] people = line.split(",");
+             tempName = people[0];
+             tempMajor = people[1];
+             tempGpa = Double.parseDouble(people[2]);
+            Student tempStudent = new Student(tempName, tempMajor, tempGpa);
+            roster.add(tempStudent);
+            line = reader.readLine();
+        }
+        
+        
+    }
+    
+    
+    public void printRoster() {
+        // student.toString(); repeatedly
+        for (int i = 0; i < roster.size(); i++) {
+            System.out.print(roster.get(i).toString() + "\n");
+        }
+            
+    }
+    
+    
+    
   
 }

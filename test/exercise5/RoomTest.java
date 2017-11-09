@@ -50,6 +50,6 @@ public class RoomTest {
     System.out.println("Room.toString");
     assertEquals("Olin 202", room1.toString());
     assertEquals("Main 101", room2.toString());
-  }
+  } 
   
 }

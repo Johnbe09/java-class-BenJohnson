@@ -5,6 +5,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.regex.Matcher;
@@ -17,5 +18,70 @@ import java.util.regex.Pattern;
  * @author yasiro01
  */
 public class Chart {
+    private HashMap<Integer, Song> map = new HashMap<>(); // = new HashMap<>();
+    //private String fileName;
+    
+    
+    /*
+    public void main() throws FileNotFoundException, IOException {
+        BufferedReader inputFile = new BufferedReader(new FileReader(fileName));
+        String line;
+        int position;
+        //Pattern p = Pattern.compile("\d+," + Song.getTitle() + "," + Song.getArtist());
+        while ((line = inputFile.readLine()) != null) {
+            Matcher m = p.matcher(line);
+            while (m.find()) {
+                System.out.printf("%s %s%n", m.group(2), m.group(1));
+            }
+        }
 
+    }
+*/
+    
+    public Chart(String fileName) throws FileNotFoundException, IOException {
+        BufferedReader inputFile = new BufferedReader(new FileReader(fileName));
+        String line;
+        int i = 0;
+        String title = "";
+        String artist = "";
+        
+//        while ((line = inputFile.readLine()) != null) {
+//            Scanner lineContent = new Scanner(line);
+            //i++;
+//            while (lineContent.hasNext()) {
+//                i++;
+//                String[] thisLine = line.split(",");
+//                title = thisLine[1];
+//                artist = thisLine[2];
+//                
+//                //title = lineContent.next();
+//                //artist = lineContent.next();
+//                Song newSong = new Song(title, artist);
+//                map.put(i, newSong);
+//            }
+//        }
+
+        
+        while ((line = inputFile.readLine()) != null) {
+           // i++;
+                String[] thisLine = line.split(",");
+                i = Integer.parseInt(thisLine[0]);
+                title = thisLine[1];
+                artist = thisLine[2];
+                
+                //title = lineContent.next();
+                //artist = lineContent.next();
+                Song newSong = new Song(title, artist);
+                map.put(i, newSong);
+            }
+        }
+        
+
+        
+        
+ 
+    public Song getSong(int pos) {
+        System.out.println(map.get(pos));
+        return map.get(pos);
+    }
 }

@@ -4,6 +4,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 /**
  *
@@ -14,7 +16,11 @@ public class ChartTest {
   
   @Before
   public void setUp() {
-    top40pop = new Chart("data/top40pop.csv");
+      try {
+        top40pop = new Chart("data/top40pop.csv");
+      } catch (FileNotFoundException ex) {
+      } catch (IOException ex) {
+      }
   }
   
   @After

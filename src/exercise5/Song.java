@@ -8,5 +8,47 @@ package exercise5;
  * @author yasiro01
  */
 public class Song {
+    private String title;
+    private String artist;
+    public Song(String title, String artist) {
+        this.title = title;
+        this.artist = artist;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public String getArtist() {
+        return artist;
+    }
+    @Override
+    public String toString() {
+        return String.format("%s by %s", title, artist);
+    }
+    @Override
+    public int hashCode() {
+        int accum = 0;
+        int temp = 0;
+        for (int i = 0; i < title.length(); i++) {
+            temp = (int) title.charAt(i); 
+            temp = temp * i;
+            accum = accum + temp;
+        }
+        for (int j = 0; j < artist.length(); j++) {
+            temp = (int) artist.charAt(j); 
+            temp = temp * j;
+            accum = accum + temp;
+        }
+        return accum;
+    }
+    @Override
+    public boolean equals(Object obj) {
+        final Song other = (Song) obj;
+        if (this.artist.equals(other.artist)) {
+            if (this.title.equals(other.title)) {
+                return true;
+            }
+        } return false;
+    }
+    
   
 }

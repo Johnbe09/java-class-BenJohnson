@@ -2,6 +2,7 @@ package exercise5;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.FileNotFoundException;
 import java.io.PrintStream;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,10 +21,12 @@ public class RosterTest {
   
   @Before
   public void setUp() {
+      //allStudents = new Roster("data/roster.csv");
     try {
       allStudents = new Roster("data/roster.csv");
-    } catch (IOException ex) {
+    } catch (FileNotFoundException ex) {
       Logger.getLogger(RosterTest.class.getName()).log(Level.SEVERE, null, ex);
+    } catch (IOException ex) {
     }
   }
   
