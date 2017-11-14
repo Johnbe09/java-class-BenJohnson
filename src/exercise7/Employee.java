@@ -43,7 +43,7 @@ public class Employee {
         this.netPay = netPay;
     }
     protected void printWeeklyCheck() {
-        
+        System.out.println(netPay/52);
     }
     
     
