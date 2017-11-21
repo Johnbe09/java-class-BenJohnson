@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author yasiro01
+ * @author ben
  */
 public class Ex9ConverterTest {
   
