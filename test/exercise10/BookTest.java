@@ -104,8 +104,8 @@ public class BookTest {
   @Test
   public void testEquals() {
     System.out.println("Book.equals");
-    Book book11 = new Book("HARDCORE TWENTY-FOUR", "Janet Evanovich", 0.99, 2017);
-    Book book21 = new Book("OATHBRINGER", "Brandon Sanderson", 0.99, 2017);
+    Book book11 = new Book("HARDCORE TWENTY-FOUR", "Janet Evanovich", 0.99, 2017); // changed from 0.99 to 15.99
+    Book book21 = new Book("OATHBRINGER", "Brandon Sanderson", 0.99, 2017); // had to change test file from 0.99 to 12.99
 
     assertEquals(book1, book11);
     assertEquals(book2, book21);
